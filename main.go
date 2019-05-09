@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"time"
 )
 
 func main() {
@@ -18,7 +19,7 @@ func main() {
 func handler(w http.ResponseWriter, r *http.Request) {
 	res, err := http.Get("http://10.4.0.3:8080")
 	if err != nil {
-		fmt.Println(err)
+		fmt.Printf("%+v:%+v", time.Now(), err)
 		return
 	}
 	defer res.Body.Close()
