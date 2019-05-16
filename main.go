@@ -8,8 +8,10 @@ import (
 	"time"
 )
 
+const backendURL = "10.6.0.10:8080"
+
 func main() {
-	res, err := http.Get("http://10.4.0.3:8080")
+	res, err := http.Get(backendURL)
 	if err != nil {
 		fmt.Printf("%+v:%+v", time.Now(), err)
 		return
@@ -29,7 +31,7 @@ func main() {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	res, err := http.Get("http://10.4.0.3:8080")
+	res, err := http.Get(backendURL)
 	if err != nil {
 		fmt.Printf("%+v:%+v", time.Now(), err)
 		return
